@@ -476,13 +476,9 @@ gulp.task('wiredep:client', () => {
     return gulp.src(paths.client.mainView)
         .pipe(wiredep({
             exclude: [
-                /bootstrap.js/,
                 '/json3/',
                 '/es5-shim/',
-                /font-awesome\.css/,
-                /bootstrap\.css/,
-                /bootstrap-sass-official/,
-                /bootstrap-social\.css/
+                /font-awesome\.css/
             ],
             ignorePath: clientPath
         }))
@@ -493,13 +489,9 @@ gulp.task('wiredep:test', () => {
     return gulp.src(paths.karma)
         .pipe(wiredep({
             exclude: [
-                /bootstrap.js/,
                 '/json3/',
                 '/es5-shim/',
-                /font-awesome\.css/,
-                /bootstrap\.css/,
-                /bootstrap-sass-official/,
-                /bootstrap-social\.css/
+                /font-awesome\.css/
             ],
             devDependencies: true
         }))
@@ -616,7 +608,7 @@ gulp.task('copy:extras', () => {
 });
 
 gulp.task('copy:fonts', () => {
-    return gulp.src(`${clientPath}/bower_components/{bootstrap,font-awesome}/fonts/**/*`, { dot: true })
+    return gulp.src(`${clientPath}/bower_components/{font-awesome}/fonts/**/*`, { dot: true })
         .pipe(gulp.dest(`${paths.dist}/${clientPath}/bower_components`));
 });
 
